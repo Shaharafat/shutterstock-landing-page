@@ -1,0 +1,59 @@
+// FLEX
+@mixin flex($direction: row, $align-items: center, $justify-content: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+// BACKGROUND IMAGE
+@mixin full-background-image($url) {
+  background: url($url) center center / cover;
+}
+
+// BUTTON
+@mixin pill-button($bg-color, $color, $padding: 0.5rem 1rem, $radius: none) {
+  background-color: $bg-color;
+  padding: $padding;
+  color: $color;
+  border-radius: $radius;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  @if $bg-color == $orange {
+    &:hover {
+      @include pill-button-hover(darken($orange, 10%),$white);
+    }
+  }
+}
+
+@mixin pill-button-hover($bg-color: inherit, $color: inherit) {
+  background-color: $bg-color;
+  color: $color;
+}
+
+@mixin sample-image-section($img-width) {
+  display: flex;
+  flex-direction: column;
+  color: $dark-blue;
+  align-items: center;
+
+  .sample-image {
+    @include flex($justify-content: space-between, $align-items: stretch);
+
+    .sample-image__box {
+      width: $img-width;
+      display: flex;
+      flex-direction: column;
+
+      .sample-image__img {
+        width: 100%;
+      }
+
+      .sample-image__title {
+      }
+    }
+  }
+}

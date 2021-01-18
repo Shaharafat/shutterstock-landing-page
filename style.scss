@@ -1,0 +1,320 @@
+@import "./scss/base";
+@import "./scss/settings";
+@import "./scss/mixins";
+@import "./scss/utilitites";
+
+.header {
+  background: blue;
+  width: 100%;
+  height: 80vh;
+  @include full-background-image("./images/header-background-3.jpg");
+
+  &__text{
+    height: 100%;
+    @include flex($direction: column);
+    color: $white;
+
+  }
+
+  &__button{
+    @include pill-button($orange, $white, 1rem 8rem, 9999rem);
+  }
+}
+
+.header__nav__list {
+  @include flex($justify-content: flex-start);
+  .nav__list__item {
+    list-style-type: none;
+
+    &:nth-child(n):not(:last-child) {
+      margin-right: 1rem;
+    }
+    .header__logo {
+      width: 200px;
+    }
+
+    .nav__list__item__link {
+      color: $light-gray;
+      text-decoration: none;
+
+      &:hover {
+        color: $white;
+      }
+    }
+
+    &.nav__list__item--right {
+      margin-left: auto;
+    }
+  }
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .search-form__left-portion {
+    flex-grow: 1;
+    display: flex;
+
+    & > * {
+      border: none;
+      outline: none;
+      border-radius: 0;
+    }
+
+    .search-form__select {
+      border-radius: 10px 0 0 10px;
+      border-right: 1px solid $dark-gray;
+    }
+
+    .search-form__input {
+      flex-grow: 1;
+    }
+
+    .search-form__button {
+      background: $orange;
+      border-radius: 0 10px 10px 0;
+      color: $white;
+      margin-left: auto;
+      cursor: pointer;
+    }
+  }
+
+  .search-form__image-button {
+    @include pill-button(
+      $bg-color: $white,
+      $color: black,
+      $radius: 5px,
+      $padding: 1rem 0.5rem
+    );
+  }
+}
+
+// TRIAL
+.trial-one,
+.trial-two {
+  height: 70px;
+  background: $black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+
+  &__button {
+    @include pill-button($black, $white, 0.8rem 4rem, 9999em);
+    border: 1px solid $white;
+
+    &:hover {
+      @include pill-button-hover($white, $black);
+    }
+  }
+}
+
+.trial-two {
+  background-color: $orange;
+
+  &__button {
+    @include pill-button($orange, $white, 0.8rem 4rem, 9999em);
+    border: 1px solid $white;
+  }
+}
+
+// COLOR TRENDS
+.color-trend,
+.hiv,
+.covid {
+  @include flex(column, flex-start);
+  @include full-background-image("./images/colorTrend.png");
+  color: $white;
+
+  &__description {
+    line-height: 1.5;
+  }
+
+  &__button {
+    @include pill-button($orange, $white, 0.8rem 4.5rem, 9999em);
+  }
+}
+
+// ROYALITY FREE IMAGE SECTION ONE
+.sample-image-section--one {
+  @include sample-image-section(32%);
+}
+
+// ROYALITY FREE IMAGE SECTION TWO
+.sample-image-section--two {
+  @include sample-image-section(24%);
+}
+
+// TAKE LOOK
+.hiv {
+  @include full-background-image("./images/take-look.jpg");
+}
+
+// SEARCH LIST
+.image-search,
+.footer__content {
+  &__title {
+    color: $dark-blue;
+  }
+
+  &__lists {
+    @include flex($justify-content: space-between);
+  }
+
+  &__list {
+    list-style: none;
+
+    &__item {
+      margin-top: 0.5rem;
+
+      &__link {
+        text-decoration: none;
+        color: $dark-gray;
+        font-size: 0.8rem;
+
+        &:hover {
+          color: $darkest-gray;
+        }
+      }
+    }
+  }
+}
+
+// COVID
+.covid {
+  @include flex(row, center, flex-start);
+  @include full-background-image("./images/covid.jpg");
+}
+
+// BRAND
+.brand {
+  @include flex($direction: column);
+
+  &__title {
+    color: $dark-blue;
+  }
+
+  &__images {
+    @include flex($justify-content: space-around);
+  }
+
+  &__image {
+    width: 120px;
+  }
+}
+
+// ROYALITY DETAILS
+.royality-details {
+  @include flex($direction: column, $justify-content: space-between);
+
+  &__description {
+    width: 50%;
+    text-align: center;
+    line-height: 1.5;
+    color: $dark-gray;
+  }
+}
+
+// SIGNUP
+.signup-wrapper {
+  @include full-background-image("./images/form.jpg");
+  .signup {
+    @include flex($justify-content: space-between);
+    color: $white;
+
+    &__details {
+      flex-basis: 45%;
+
+      &__description {
+        line-height: 1.5;
+      }
+    }
+
+    &__form {
+      background: $white;
+      flex-basis: 40%;
+      @include flex($direction: column);
+      color: $black;
+
+      &__title {
+        color: $black;
+        align-self: flex-start;
+      }
+
+      &__input {
+        padding: 0.5rem;
+        border: none;
+        border-bottom: 1px solid $light-gray;
+        font-size: 1.1rem;
+      }
+
+      &__submit {
+        @include pill-button($orange, $white, 0.7rem, 9999rem);
+      }
+
+      &__terms {
+        color: $dark-gray;
+      }
+
+      &__login {
+        color: $dark-gray;
+        border-top: 1px solid $light-gray;
+      }
+    }
+  }
+}
+
+// EXTRA
+.extra{
+  @include flex();
+
+  &__info{
+    text-align: center;
+    color: $dark-gray;
+    line-height: 1.5;
+  }
+}
+
+// FOOTER
+.footer-wrapper {
+  background: $black;
+  color: $ash;
+}
+
+.footer {
+  &__language {
+    @include flex($justify-content: space-between);
+  }
+
+  &__language-select {
+    appearance: none;
+    @include pill-button($black, $light-gray, 0.8rem 5rem, 9999rem);
+    border: 1px solid $light-gray;
+    font-size: 1.3rem;
+    font-family: fontAwesome; // important
+  }
+
+  &__content__lists {
+    @include flex($justify-content: space-between, $align-items: flex-start);
+  }
+  &__content__list {
+    & .title {
+      color: $white;
+    }
+
+    &__item {
+      margin-top: 0.8rem;
+      &__link {
+        color: $ash;
+        &title {
+          color: $white;
+        }
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+  }
+}
